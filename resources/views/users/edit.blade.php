@@ -13,7 +13,7 @@
 				<div class="col-sm-12">
                     
                     <form action="{{ route('user.update', $user->id) }}" method="post" class="form-horizontal panel">
-                        <input type="hidden" name="method" value="PUT">
+                        <input type="hidden" name="_method" value="PUT">
                         {!! csrf_field() !!}
                         <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
                             <input type="text" name="name" class="form-control" placeholder"Nom" value="{{ $user->name }}" />

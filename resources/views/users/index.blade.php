@@ -39,7 +39,7 @@
                                 <td>
                                     <form action="{!! route('user.destroy', $user->id) !!}" method="post">
                                         {!! csrf_field() !!}
-                                        <input type="hidden" name="method" value="DELETE">
+                                        <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger btn-block" onclick="return confirm(\'Vraiment supprimer cet utilisateur ?\')">Supprimer</button>
                                     </form>
                                 </td>
