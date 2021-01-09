@@ -63,7 +63,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getById($id);
 
-        return \view('show', \compact('user'))->withActive('users');
+        return \view('users.show', \compact('user'))->withActive('users');
     }
 
     /**
@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getById($id);
 
-        return \view('edit', \compact('user'))->withActive('users');
+        return \view('users.edit', \compact('user'))->withActive('users');
     }
 
     /**
