@@ -27,7 +27,7 @@ class UserController extends Controller
         $users = $this->userRepository->getPaginate($this->nbrPerPage);
         $links = $users->render();
 
-        return \view('index', \compact('users', 'links'));
+        return \view('index', \compact('users', 'links'))->withActive('users');
     }
 
     /**
@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return \view('create');
+        return \view('create')->withActive('users');
     }
 
     /**
@@ -50,7 +50,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->store($request->all());
 
-        return \redirect('user')->withOk("L'utilisateur ".$user->name." a été créé.");
+        return \redirect('user')->withOk("L'utilisateur ".$user->name." a été créé.")->withActive('users');
     }
 
     /**
@@ -63,7 +63,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getById($id);
 
-        return \view('show', \compact('user'));
+        return \view('show', \compact('user'))->withActive('users');
     }
 
     /**
@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getById($id);
 
-        return \view('edit', \compact('user'));
+        return \view('edit', \compact('user'))->withActive('users');
     }
 
     /**
@@ -90,7 +90,7 @@ class UserController extends Controller
     {
         $this->userRepository->update($id, $request->all());
 
-        return \redirect('user')->withOk("L'utilisateur ".$request->input('name')." a été modifié.");
+        return \redirect('user')->withOk("L'utilisateur ".$request->input('name')." a été modifié.")->withActive('users');
     }
 
     /**
@@ -103,6 +103,6 @@ class UserController extends Controller
     {
         $this->userRepository->destroy($id);
 
-        return \back();
+        return \back()->withActive('users');
     }
 }
