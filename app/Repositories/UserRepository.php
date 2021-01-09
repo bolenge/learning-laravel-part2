@@ -25,12 +25,12 @@
             return $this->user->paginate($n);
         }
         
-        public function store(Array $inputs)
+        public function store(array $inputs)
         {
             $user = new $this->user;
             $user->password = \bcrypt($inputs['password']);
 
-            $user->save($user, $inputs);
+            $this->save($user, $inputs);
 
             return $user;
         }
