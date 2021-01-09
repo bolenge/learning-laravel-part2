@@ -27,7 +27,7 @@ class UserController extends Controller
         $users = $this->userRepository->getPaginate($this->nbrPerPage);
         $links = $users->render();
 
-        return \view('index', \compact('users', 'links'))->withActive('users');
+        return \view('users.index', \compact('users', 'links'))->withActive('users');
     }
 
     /**
