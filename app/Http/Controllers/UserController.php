@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return \view('create')->withActive('users');
+        return \view('users.create')->withActive('users');
     }
 
     /**
