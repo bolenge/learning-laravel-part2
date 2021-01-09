@@ -11,7 +11,7 @@
 			<div class="card-header">Création d'un utilisateur</div>
 			<div class="card-body"> 
 				<div class="col-sm-12">
-                    <form action="{{ route('user.store') }}" method="post" class="form-horizontal card">
+                    <form action="{{ route('user.store') }}" method="post" class="form-horizontal">
                         {!! csrf_field() !!}
                         <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
                             <input type="text" name="name" class="form-control" placeholder"Nom" />
@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="admin" value="1">Administrateur
+                                    <input type="checkbox" name="admin" value="1"> Administrateur
                                 </label>
                             </div>
                         </div>
