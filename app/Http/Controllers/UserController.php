@@ -49,6 +49,7 @@ class UserController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
+        $this->setAdmin($request);
         $user = $this->userRepository->store($request->all());
 
         return \redirect('user')->withOk("L'utilisateur ".$user->name." a été créé.")->withActive('users');
@@ -89,6 +90,7 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
+        $this->setAdmin($request);
         $this->userRepository->update($id, $request->all());
 
         return \redirect('user')->withOk("L'utilisateur ".$request->input('name')." a été modifié.")->withActive('users');
@@ -105,5 +107,12 @@ class UserController extends Controller
         $this->userRepository->destroy($id);
 
         return \back()->withActive('users');
+    }
+
+    public function setAdmin($request)
+    {
+        if (!$request->has('admin')) {
+            $request->merge(['admin', 0]);
+        }
     }
 }
