@@ -17,7 +17,16 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link {{ get_menu_active('home', $active) }}" href="/">Accueil <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link {{ get_menu_active('users', $active) }}" href="/user">Utilisateurs</a>
+                </div>
+                
+                <div class="nav navbar-nav navbar-right">
                     <a class="nav-item nav-link {{ get_menu_active('blog', $active) }}" href="/post">Blog</a>
+                    @if (Auth::check())
+                        <a href="/post/create" class="btn btn-primary mr-3">Créer un article</a>
+                        <a href="/logout" class="btn btn-warning">Déconnexion</a>
+                    @else
+                        <a href="/login" class="btn btn-info">Se connecter</a>
+                    @endif
                 </div>
             </div>
         </nav>

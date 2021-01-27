@@ -9,7 +9,7 @@ use App\Repositories\PostRepository;
 class PostController extends Controller
 {
     protected $postRepository;
-    protected $nbrPerPage = 4;
+    protected $nbrPerPage = 6;
 
     public function __construct(PostRepository $postRepository)
     {
@@ -21,10 +21,11 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = $this->postRepository->getPainate($this->nbrPerPage);
+        $posts = $this->postRepository->getPaginate($this->nbrPerPage);
         $links = $posts->render();
+        $active = 'blog';
 
-        return \view('posts.list', \compact('posts', 'links'));
+        return \view('posts.list', \compact('posts', 'links', 'active'));
     }
 
     public function create()
