@@ -30,7 +30,7 @@ class PostController extends Controller
 
     public function create()
     {
-        return \view('posts.add');
+        return \view('posts.add')->withActive('blog');
     }
 
     public function store(PostRequest $request)
@@ -39,7 +39,7 @@ class PostController extends Controller
 
         $this->postRepository->store($inputs);
 
-        return \redirect(\route('post.index'));
+        return \redirect('/post');
     }
 
     public function destroy($id)
