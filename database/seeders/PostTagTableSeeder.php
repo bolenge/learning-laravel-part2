@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+use DB;
 
 class PostTagTableSeeder extends Seeder
 {
