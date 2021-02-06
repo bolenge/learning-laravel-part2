@@ -41,6 +41,10 @@
 					</div>
 				@endforeach
 			</div>
+
+			<div class="container">
+				{!! $links !!}
+			</div>
 		@endif
 	</div>
 @endsection
