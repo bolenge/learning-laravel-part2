@@ -130,9 +130,10 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'tags' => [
+            'regex' => "Les mots-clefs, séparés par des virgules (sans espaces), doivent avoir au maximum 50 caractères alphanumériques.",
         ],
+
     ],
 
     /*
