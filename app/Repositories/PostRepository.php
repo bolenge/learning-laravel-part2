@@ -29,6 +29,24 @@
 
         public function destroy($id)
         {
-            $this->post->findOrFail($id)->delete();
+            $post = $this->post->findOrFail($id)->delete();
+            $post->tags()->detach();
+            $post->delete();
+        }
+
+        public function queryWithUserAndTag()
+        {
+            return $this->post
+                        ->with('user', 'tags  ')
+                        ->orderBy('posts.created_at', 'desc');
+        }
+
+        public function getWithUserAndTagsPaginate($n)
+        {
+            return $this->queryWithUserAndTags()
+                        ->whereHas('tags', function($q) use ($tag)
+            {
+                $q->where('tags.tag_url', $tag);
+            })->paginate($n);
         }
     }
