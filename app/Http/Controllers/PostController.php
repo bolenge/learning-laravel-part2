@@ -58,7 +58,8 @@ class PostController extends Controller
     {
         $posts = $this->postRepository->getWithUserAndTagsForTagPaginate($tag, $this->nbrPerPage);
         $links = $posts->render();
+        $active = 'blog';
 
-        return \view('posts.list', \compact('posts', 'links'))->with('info', 'Résultat pour la recherche du mot clé : '.$tag);
+        return \view('posts.list', \compact('posts', 'links', 'active'))->with('info', 'Résultat pour la recherche du mot clé : '.$tag);
     }
 }

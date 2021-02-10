@@ -34,14 +34,19 @@
             $post->delete();
         }
 
-        public function queryWithUserAndTag()
+        public function queryWithUserAndTags()
         {
             return $this->post
-                        ->with('user', 'tags  ')
+                        ->with('user', 'tags')
                         ->orderBy('posts.created_at', 'desc');
         }
 
         public function getWithUserAndTagsPaginate($n)
+	{
+		return $this->queryWithUserAndTags()->paginate($n);
+	}
+
+        public function getWithUserAndTagsForTagPaginate($tag, $n)
         {
             return $this->queryWithUserAndTags()
                         ->whereHas('tags', function($q) use ($tag)

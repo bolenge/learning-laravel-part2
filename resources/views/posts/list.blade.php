@@ -20,6 +20,11 @@
 						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title">{{ $post->title }}</h3>
+								<div class="float-right">
+									@foreach ($post->tags as $tag)
+										<a href="/post/tag/{{ $tag->tag_url }}" class="btn btn-info btn-sm">{{ $tag->tag }}</a>
+									@endforeach
+								</div>
 							</div>
 							<div class="card-body">
 								<p>{{ $post->content }}</p>
