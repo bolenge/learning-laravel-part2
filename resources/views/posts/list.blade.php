@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+	<style>
+		.w-5 {
+			width: 15px !important;
+		}
+		.h-5 {
+			height: 15px !important;
+		}
+	</style>
+
 	<div class="container mt-5">		
 		@if (isset($info))
 			<div class="alert alert-info">
