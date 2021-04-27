@@ -60,6 +60,13 @@ class PostController extends Controller
         $links = $posts->render();
         $active = 'blog';
 
-        return \view('posts.list', \compact('posts', 'links', 'active'))->with('info', 'Résultat pour la recherche du mot clé : '.$tag);
+        return \view('posts.list', \compact('posts', 'links', 'active'))->with('info', trans('blog.search').$tag);
+    }
+
+    public function language()
+    {
+        session()->put('locale', session('locale') === 'fr' ? 'en' : 'fr');
+
+        return redirect()->back();
     }
 }

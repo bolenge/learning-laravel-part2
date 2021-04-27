@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,4 @@ Route::resource('post', 'PostController', ['except' => 'show', 'edit', 'update']
 
 Route::post('/post/add', [App\Http\Controllers\PostController::class, 'store']);
 Route::get('/post/tag/{tag}', [App\Http\Controllers\PostController::class, 'indexTag']);
+Route::get('language', [PostController::class, 'language']);

@@ -21,8 +21,9 @@
                 
                 <div class="nav navbar-nav navbar-right">
                     <a class="nav-item nav-link {{ get_menu_active('blog', $active) }}" href="/post">Blog</a>
+                    <a href="/language" class="btn btn-primary">{{ session('locale') == 'fr' ? 'English' : 'Français' }}</a>
                     @if (Auth::check())
-                        <a href="/post/create" class="btn btn-primary mr-3">Créer un article</a>
+                        <a href="/post/create" class="btn btn-primary mx-3">Créer un article</a>
                         <a href="/logout" class="btn btn-warning">Déconnexion</a>
                     @else
                         <a href="/login" class="btn btn-info">Se connecter</a>

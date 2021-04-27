@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-	<div class="container mt-5">
-		
+	<div class="container mt-5">		
 		@if (isset($info))
 			<div class="alert alert-info">
 				{{ $info }}
@@ -39,7 +38,7 @@
 								@endif
 
 								<em class="float-right">
-									<span class="fa fa-pencil"></span> {{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}
+									<span class="fa fa-pencil"></span> {{ $post->user->name . ' ' . trans('blog.on') . ' ' . $post->created_at }}
 								</em>
 							</div>
 						</div>
